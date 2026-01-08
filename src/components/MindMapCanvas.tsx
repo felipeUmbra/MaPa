@@ -75,7 +75,7 @@ export const MindMapCanvas = forwardRef<MindMapCanvasRef, MindMapCanvasProps>(({
     target: conn.target,
     type: 'smoothstep',
     animated: false,
-    style: { stroke: '#666', strokeWidth: 2 },
+    style: { stroke: '#666', strokeWidth: 3 },
   }));
 
   const handleNodesChange = useCallback(

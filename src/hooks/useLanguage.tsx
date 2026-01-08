@@ -4,7 +4,9 @@ export type Language = 'pt' | 'en';
 
 interface Translations {
   addNode: string;
+  addChildNode: string;
   addOrphanNode: string;
+  export: string;
   exportPNG: string;
   exportPDF: string;
   zoomIn: string;
@@ -26,10 +28,12 @@ interface Translations {
 
 const translations: Record<Language, Translations> = {
   pt: {
-    addNode: 'Adicionar Nó Filho',
-    addOrphanNode: 'Adicionar Nó Órfão',
-    exportPNG: 'Exportar PNG',
-    exportPDF: 'Exportar PDF',
+    addNode: 'Adicionar Nó',
+    addChildNode: '+ Filho',
+    addOrphanNode: '+ Órfão',
+    export: 'Exportar',
+    exportPNG: 'Como PNG',
+    exportPDF: 'Como PDF',
     zoomIn: 'Ampliar',
     zoomOut: 'Reduzir',
     resetZoom: 'Redefinir Zoom',
@@ -47,10 +51,12 @@ const translations: Record<Language, Translations> = {
     resize: 'Redimensionar',
   },
   en: {
-    addNode: 'Add Child Node',
-    addOrphanNode: 'Add Orphan Node',
-    exportPNG: 'Export PNG',
-    exportPDF: 'Export PDF',
+    addNode: 'Add Node',
+    addChildNode: '+ Child',
+    addOrphanNode: '+ Orphan',
+    export: 'Export',
+    exportPNG: 'As PNG',
+    exportPDF: 'As PDF',
     zoomIn: 'Zoom In',
     zoomOut: 'Zoom Out',
     resetZoom: 'Reset Zoom',

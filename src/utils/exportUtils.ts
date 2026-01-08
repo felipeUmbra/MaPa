@@ -14,7 +14,7 @@ export const exportAsPNG = async (elementId: string, filename: string = 'mindmap
   }
 
   // Hide UI elements temporarily
-  const toolbar = document.querySelector('[style*="position: absolute"][style*="top: 10px"]') as HTMLElement;
+  const toolbar = document.querySelector('.mindmap-toolbar') as HTMLElement;
   const controls = element.querySelector('.react-flow__controls') as HTMLElement;
   const minimap = element.querySelector('.react-flow__minimap') as HTMLElement;
   
@@ -41,7 +41,7 @@ export const exportAsPNG = async (elementId: string, filename: string = 'mindmap
       removeContainer: false,
       onclone: (clonedDoc) => {
         // Ensure UI elements are hidden in the cloned document
-        const clonedToolbar = clonedDoc.querySelector('[style*="position: absolute"][style*="top: 10px"]') as HTMLElement;
+        const clonedToolbar = clonedDoc.querySelector('.mindmap-toolbar') as HTMLElement;
         const clonedControls = clonedDoc.querySelector('.react-flow__controls') as HTMLElement;
         const clonedMinimap = clonedDoc.querySelector('.react-flow__minimap') as HTMLElement;
         
@@ -76,7 +76,7 @@ export const exportAsPDF = async (elementId: string, filename: string = 'mindmap
   }
 
   // Hide UI elements temporarily
-  const toolbar = document.querySelector('[style*="position: absolute"][style*="top: 10px"]') as HTMLElement;
+  const toolbar = document.querySelector('.mindmap-toolbar') as HTMLElement;
   const controls = element.querySelector('.react-flow__controls') as HTMLElement;
   const minimap = element.querySelector('.react-flow__minimap') as HTMLElement;
   
@@ -103,7 +103,7 @@ export const exportAsPDF = async (elementId: string, filename: string = 'mindmap
       removeContainer: false,
       onclone: (clonedDoc) => {
         // Ensure UI elements are hidden in the cloned document
-        const clonedToolbar = clonedDoc.querySelector('[style*="position: absolute"][style*="top: 10px"]') as HTMLElement;
+        const clonedToolbar = clonedDoc.querySelector('.mindmap-toolbar') as HTMLElement;
         const clonedControls = clonedDoc.querySelector('.react-flow__controls') as HTMLElement;
         const clonedMinimap = clonedDoc.querySelector('.react-flow__minimap') as HTMLElement;
         
