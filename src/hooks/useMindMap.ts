@@ -46,13 +46,7 @@ export const useMindMap = () => {
   // Load from storage or use initial state
   const storedData = loadFromStorage();
   const initialNodes = storedData?.nodes || getInitialNodes(t);
-  // Update root node text if loaded from storage
-  if (storedData?.nodes) {
-    const rootNode = initialNodes.find(n => n.id === 'root');
-    if (rootNode) {
-      rootNode.text = t.centralIdea;
-    }
-  }
+
   const initialConnections = storedData?.connections || [];
 
   const [nodes, setNodes] = useState<MindMapNode[]>(initialNodes);
@@ -63,14 +57,7 @@ export const useMindMap = () => {
     saveToStorage(nodes, connections);
   }, [nodes, connections]);
 
-  // Update root node text when language changes
-  useEffect(() => {
-    setNodes((prev) =>
-      prev.map((node) =>
-        node.id === 'root' ? { ...node, text: t.centralIdea } : node
-      )
-    );
-  }, [t.centralIdea]);
+
 
   const addNode = useCallback((parentId?: string) => {
     const parentNode = parentId ? nodes.find((n) => n.id === parentId) : nodes[0];
