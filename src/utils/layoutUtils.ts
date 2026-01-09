@@ -6,7 +6,6 @@ export const calculateNodePosition = (
   totalChildren: number,
   level: number
 ): { x: number; y: number } => {
-  const horizontalSpacing = 250;
   const verticalSpacing = 100;
   const levelOffset = level * 300;
 

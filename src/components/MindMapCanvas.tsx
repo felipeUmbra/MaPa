@@ -156,41 +156,32 @@ export const MindMapCanvas = forwardRef<MindMapCanvasRef, MindMapCanvasProps>(({
     reactFlowInstance.current = instance;
   }, []);
 
-  useImperativeHandle(ref, () => ({
-    zoomIn: () => {
-      if (reactFlowInstance.current) {
-        const currentZoom = reactFlowInstance.current.getZoom();
-        const newZoom = Math.min(currentZoom + 0.1, 2);
-        reactFlowInstance.current.setZoom(newZoom);
-      }
-    },
-    zoomOut: () => {
-      if (reactFlowInstance.current) {
-        const currentZoom = reactFlowInstance.current.getZoom();
-        const newZoom = Math.max(currentZoom - 0.1, 0.5);
-        reactFlowInstance.current.setZoom(newZoom);
-      }
-    },
-    resetZoom: () => {
-      if (reactFlowInstance.current) {
-        reactFlowInstance.current.fitView();
-        reactFlowInstance.current.setZoom(1);
-      }
-    },
-    setZoom: (zoom: number) => {
-      if (reactFlowInstance.current) {
-        const clampedZoom = Math.max(0.5, Math.min(2, zoom));
-        reactFlowInstance.current.setZoom(clampedZoom);
-      }
-    },
-    getZoom: () => {
-      return reactFlowInstance.current?.getZoom() || 1;
-    },
-  }));
-
-  const contextMenuNode = contextMenu
-    ? nodes.find((n) => n.id === contextMenu.nodeId)
-    : null;
+useImperativeHandle(ref, () => ({
+  zoomIn: () => {
+    if (reactFlowInstance.current) {
+      reactFlowInstance.current.zoomIn(); // Use o método nativo zoomIn
+    }
+  },
+  zoomOut: () => {
+    if (reactFlowInstance.current) {
+      reactFlowInstance.current.zoomOut(); // Use o método nativo zoomOut
+    }
+  },
+  resetZoom: () => {
+    if (reactFlowInstance.current) {
+      reactFlowInstance.current.fitView();
+    }
+  },
+  setZoom: (zoom: number) => {
+    if (reactFlowInstance.current) {
+      const clampedZoom = Math.max(0.5, Math.min(2, zoom));
+      reactFlowInstance.current.zoomTo(clampedZoom); // O nome correto é zoomTo
+    }
+  },
+  getZoom: () => {
+    return reactFlowInstance.current?.getZoom() || 1;
+  },
+}));
 
   return (
     <div id="mindmap-canvas" style={{ width: '100%', height: '100vh', backgroundColor: '#ffffff', position: 'relative' }}>

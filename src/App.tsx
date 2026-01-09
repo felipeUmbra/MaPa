@@ -7,7 +7,7 @@ import './styles/App.css';
 
 const AppContent: React.FC = () => {
   const { nodes, connections, addNode, addOrphanNode, addConnection, updateNode, deleteNode, resetMap, onNodesChange } = useMindMap();
-  const { t, language } = useLanguage();
+  const {language } = useLanguage();
   const canvasRef = useRef<MindMapCanvasRef>(null);
 
   const handleAddNode = () => {
